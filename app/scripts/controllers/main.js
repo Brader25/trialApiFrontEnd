@@ -2,8 +2,6 @@
 
 angular.module('trialFrontEndApp')
   .controller('MainCtrl', MainCtrl);
-  
-  MainCtrl.$inject = ['getContacts', '$http'];
 
    function MainCtrl(getContacts, $http) {
     var vm = this;

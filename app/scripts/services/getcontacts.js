@@ -3,8 +3,6 @@
 angular.module('trialFrontEndApp')
   .factory('getContacts', getContacts);
 
-getContacts.$inject = ['$http'];
-
 function getContacts($http) {
   return {
     getContactList: getContactList

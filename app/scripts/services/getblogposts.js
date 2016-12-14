@@ -2,8 +2,6 @@
 angular.module('trialFrontEndApp')
   .factory('getBlogPosts',getBlogPosts)
 
-  getContacts.$inject = ['$http'];
-
    function getBlogPosts ($http) {
  return {
     getBlogPostList: getBlogPostList

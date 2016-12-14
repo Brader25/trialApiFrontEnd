@@ -2,7 +2,6 @@
 angular.module('trialFrontEndApp')
   .controller('BlogCtrl', BlogCtrl)
 
-BlogCtrl.$inject = ['getBlogPosts', '$http'];
 function BlogCtrl(getBlogPosts, $http) {
   var vm = this;
   vm.blogPost = [];
