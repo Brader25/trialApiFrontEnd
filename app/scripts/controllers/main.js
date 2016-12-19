@@ -47,7 +47,7 @@ function MainCtrl(getContacts, $http) {
       .then(function (response) {
         vm.contacts.push(response.data);
         vm.newContact = {};
-        vm.successAddContact = true;
+        alert("Successfully Added New Contact: " + response.data.firstName + response.data.lastName);
       },
       function (response) {
         console.log("failed");

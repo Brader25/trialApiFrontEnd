@@ -1,7 +1,8 @@
 <div class="col-lg-2 col-lg-offset-1">
   <h1>Contact List</h1>
   <li style="list-style:none;"ng-repeat="contact in main.contacts">Name: {{contact.firstName}} {{contact.lastName}} <br />Phone Number: {{contact.phone}} <br />Address: {{contact.homeAddress}}<br />City: {{contact.city}}<br />State: {{contact.state}}<br />ZipCode: {{contact.zipCode}}<br />
-  <button  class="btn btn-danger" ng-click="main.deleteContact(contact)">Delete</button><br /><br /></li>
+  <button  class="btn btn-danger" ng-click="main.deleteContact(contact)">Delete</button><br /><br />
+  </li>
 </div>
 <div class="col-lg-8 col-lg-offset--1">
  <form>
