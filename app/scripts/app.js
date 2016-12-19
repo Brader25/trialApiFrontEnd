@@ -16,10 +16,15 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/blog', {
+      .when('/iliketurtles', {
         templateUrl: 'views/blog.html',
         controller: 'BlogCtrl',
         controllerAs: 'blog'
+      })
+       .when('/blog', {
+        templateUrl: 'views/viewblog.html',
+        controller: 'ViewblogCtrl',
+        controllerAs: 'viewBlog'
       })
       .when('/', {
         templateUrl: 'views/home.html',

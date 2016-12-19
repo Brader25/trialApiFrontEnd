@@ -9,9 +9,6 @@
             <label for="author-name">Author name:</label> <input type="text" class="form-control" id="author-name" ng-model="blog.newBlogPost.authorName"
             />
         </div>
-        <input type="submit" class="btn btn-primary" ng-click="blog.addBlogPost(blog.newBlogPost)" value="Save" />
+        <input type="submit" class="btn btn-primary save-button" ng-click="blog.addBlogPost(blog.newBlogPost)" value="Save" />
     </form>
-</div>
-<div class="col-sm-12">
-    <li ng-repeat="post in blog.blogPost">{{post.content}}<br/>{{post.authorName}}</li>
 </div>

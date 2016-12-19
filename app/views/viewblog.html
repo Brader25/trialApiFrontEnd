@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-lg-8 col-lg-offset-2">
+                <h1>Messages</h1>
+            <li style="list-style:none;" ng-repeat="post in viewBlog.blogPost">
+                <h4 class="author-heading">{{post.authorName}}-</h4>
+                <div class="post-content">{{post.content}}</div>
+                <div><button type="button" class="btn btn-danger delete-button" ng-click="viewBlog.deletePost(post)">delete</button></div>
+            </li>
+        </div>
+    </div>
+</div>

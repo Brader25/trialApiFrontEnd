@@ -3,69 +3,67 @@
 angular.module('trialFrontEndApp')
   .controller('MainCtrl', MainCtrl);
 
-   function MainCtrl(getContacts, $http) {
-    var vm = this;
+function MainCtrl(getContacts, $http) {
+  var vm = this;
 
-    vm.contacts = [];
-    vm.addNewContact = addNewContact;
-    vm.successAddContact = false;
-    vm.deleteContact = deleteContact;
-    vm.newContact = {
-      firstName: '',
-      lastName: '',
-      phoneNumber: '',
-      homeAddress: {
-        home: '',
-        city: '',
-        state: '',
-        zipCode: '',
-      }
-    };
-
-    activate(); 
-
-    function activate() {
-      return getContact().then(function(){
-        console.log('done');
-      });
+  vm.contacts = [];
+  vm.addNewContact = addNewContact;
+  vm.successAddContact = false;
+  vm.deleteContact = deleteContact;
+  vm.newContact = {
+    firstName: '',
+    lastName: '',
+    phoneNumber: '',
+    homeAddress: {
+      home: '',
+      city: '',
+      state: '',
+      zipCode: '',
     }
+  };
 
-    function getContact() {
-      return getContacts.getContactList()
-      .then(function(data) {
+  activate();
+
+  function activate() {
+    return getContact().then(function () {
+      console.log('done');
+    });
+  }
+
+  function getContact() {
+    return getContacts.getContactList()
+      .then(function (data) {
         vm.contacts = data;
         return vm.contacts
       })
-    }
+  }
 
-function addNewContact(contact) {
+  function addNewContact(contact) {
     $http({
-        url: 'http://berickson-001-site1.ctempurl.com/api/contacts',
-        method: "POST",
-        data: contact
+      url: 'http://berickson-001-site1.ctempurl.com/api/contacts',
+      method: "POST",
+      data: contact
     })
-    .then(function(response) {
-      vm.contacts.push(response.data);
+      .then(function (response) {
+        vm.contacts.push(response.data);
         vm.newContact = {};
         vm.successAddContact = true;
-    }, 
-    function(response) { 
+      },
+      function (response) {
         console.log("failed");
-    });
+      });
+  }
+
+  function deleteContact(contact) {
+    $http({
+      method: 'DELETE',
+      url: 'http://berickson-001-site1.ctempurl.com/api/contacts/' + contact.contactId
+    })
+      .then(function (response) {
+        vm.contacts = getContact();
+      }, function (rejection) {
+        console.log(rejection.data);
+      });
+
+  }
 }
-
-function deleteContact(contact) {
-$http({
-    method: 'DELETE',
-    url: 'http://berickson-001-site1.ctempurl.com/api/contacts/' + contact.contactId
-})
-.then(function(response) {
-    vm.contacts = getContact();
-}, function(rejection) {
-    console.log(rejection.data);
-});
-
-}
-
-
-  };

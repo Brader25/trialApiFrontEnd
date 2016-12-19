@@ -1,6 +1,6 @@
 'use strict';
 angular.module('trialFrontEndApp')
-  .factory('getBlogPosts',getBlogPosts)
+  .factory('getBlogPosts', getBlogPosts)
 
    function getBlogPosts ($http) {
  return {

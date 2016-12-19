@@ -10,22 +10,7 @@ function BlogCtrl(getBlogPosts, $http) {
     authorName: '',
   };
   vm.addBlogPost = addBlogPost;
-  activate();
-
-  function activate() {
-    return getBlogPost().then(function () {
-      console.log('done');
-    });
-  }
-
-  function getBlogPost() {
-    return getBlogPosts.getBlogPostList()
-      .then(function (data) {
-        vm.blogPost = data;
-        return vm.blogPost;
-      })
-  }
-
+  
   function addBlogPost(newPost) {
     $http({
       url: 'http://berickson-001-site1.ctempurl.com/api/blogposts',
@@ -34,6 +19,8 @@ function BlogCtrl(getBlogPosts, $http) {
     })
       .then(function (response) {
         vm.blogPost.push(response.data);
+        vm.newBlogPost = {};
+        alert("Succefully added Post!")
       },
       function (response) {
         console.log("failed");
